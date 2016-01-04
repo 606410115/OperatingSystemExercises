@@ -50,7 +50,7 @@ int main(int argc, char* argv[]) {
 void* average_thread(void *param) {
     
     int sum = 0, i;
-    Input_Data *d = (data *)param;
+    Input_Data *d = (Input_Data *)param;
     for(i=0; i<d->length; i++) {
       sum += (d->numbers)[i];
     }
@@ -62,7 +62,7 @@ void* average_thread(void *param) {
 void* max_thread(void *param) {
     
     int first = 1, _max, temp, i;
-    Input_Data *d = (data *)param;
+    Input_Data *d = (Input_Data *)param;
     for(i=0; i<d->length; i++) {
         temp = (d->numbers)[i];
         if(first) {
@@ -80,7 +80,7 @@ void* max_thread(void *param) {
 void* min_thread(void *param) {
     
     int first = 1, _min, temp, i;
-    Input_Data *d = (data *)param;
+    Input_Data *d = (Input_Data *)param;
     for(i=0; i<d->length-1; i++) {
         temp = (d->numbers)[i];
         if(first) {
@@ -94,4 +94,3 @@ void* min_thread(void *param) {
     pthread_exit(0);
   
 }
-
